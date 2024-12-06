@@ -11,10 +11,20 @@ public class MedicamentosSalidas {
     @Getter
     @Id
     private String id;
+    @Setter
+    @Getter
     private String fecha;
+    @Setter
+    @Getter
     @NotNull(message = "El codigo es obligatorio")
     private String codigo;
+    @Setter
+    @Getter
     private String medicamento;
+    @Setter
+    @Getter
     private String unidad;
+    @Setter
+    @Getter
     private int cantidad;
 }
