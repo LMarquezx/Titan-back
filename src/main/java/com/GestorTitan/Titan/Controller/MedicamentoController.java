@@ -1,8 +1,10 @@
 package com.GestorTitan.Titan.Controller;
 import com.GestorTitan.Titan.Models.MedicamentoEntradas;
+import com.GestorTitan.Titan.Models.MedicamentoExist;
 import com.GestorTitan.Titan.Models.MedicamentosSalidas;
 import com.GestorTitan.Titan.Repository.MedicamentosEntradaRepository;
 import com.GestorTitan.Titan.Repository.MedicamentosSalidasRepository;
+import com.GestorTitan.Titan.Repository.medicamentoExist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,8 @@ public class MedicamentoController {
     private MedicamentosEntradaRepository _mEntradaRepository;
     @Autowired
     private MedicamentosSalidasRepository _mSalidasRepository;
+    @Autowired
+    private medicamentoExist _medicamentoExist;
 
     @GetMapping("/medicamentos")
     public List<MedicamentoEntradas> listarMedicamentos(){
@@ -113,5 +117,11 @@ public class MedicamentoController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    // Listar medicamentos
+    @GetMapping("/mediExistencias")
+    public List<MedicamentoExist> listarMedicamentosExistentes() {
+        return _medicamentoExist.findAll();
     }
 }
